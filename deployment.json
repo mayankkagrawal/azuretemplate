@@ -1,0 +1,166 @@
+{
+  "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Resources/deployments/Microsoft.Template-20201125202033",
+  "name": "Microsoft.Template-20201125202033",
+  "type": "Microsoft.Resources/deployments",
+  "tags": {
+    "marketplaceItemId": "Microsoft.Template"
+  },
+  "properties": {
+    "templateLink": {
+      "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "templateHash": "11342887496597366345",
+    "parameters": {
+      "adminUsername": {
+        "type": "String",
+        "value": "admin123"
+      },
+      "adminPassword": {
+        "type": "SecureString"
+      },
+      "dnsLabelPrefix": {
+        "type": "String",
+        "value": "simple-vm-gdtsylw33nsug"
+      },
+      "publicIpName": {
+        "type": "String",
+        "value": "myPublicIP"
+      },
+      "publicIPAllocationMethod": {
+        "type": "String",
+        "value": "Dynamic"
+      },
+      "publicIpSku": {
+        "type": "String",
+        "value": "Basic"
+      },
+      "osVersion": {
+        "type": "String",
+        "value": "2019-Datacenter"
+      },
+      "vmSize": {
+        "type": "String",
+        "value": "Standard_D2_v3"
+      },
+      "location": {
+        "type": "String",
+        "value": "eastus"
+      },
+      "vmName": {
+        "type": "String",
+        "value": "simple-vm"
+      }
+    },
+    "mode": "Incremental",
+    "debugSetting": {
+      "detailLevel": "None"
+    },
+    "provisioningState": "Running",
+    "timestamp": "2020-11-25T14:50:46.5168389Z",
+    "duration": "PT2.9915755S",
+    "correlationId": "31b7cf1b-8966-46d7-b72d-cc4c0c9ad29e",
+    "providers": [
+      {
+        "namespace": "Microsoft.Storage",
+        "resourceTypes": [
+          {
+            "resourceType": "storageAccounts",
+            "locations": [
+              "eastus"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Network",
+        "resourceTypes": [
+          {
+            "resourceType": "publicIPAddresses",
+            "locations": [
+              "eastus"
+            ]
+          },
+          {
+            "resourceType": "networkSecurityGroups",
+            "locations": [
+              "eastus"
+            ]
+          },
+          {
+            "resourceType": "virtualNetworks",
+            "locations": [
+              "eastus"
+            ]
+          },
+          {
+            "resourceType": "networkInterfaces",
+            "locations": [
+              "eastus"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Compute",
+        "resourceTypes": [
+          {
+            "resourceType": "virtualMachines",
+            "locations": [
+              "eastus"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Network/networkSecurityGroups/default-NSG",
+            "resourceType": "Microsoft.Network/networkSecurityGroups",
+            "resourceName": "default-NSG"
+          }
+        ],
+        "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Network/virtualNetworks/MyVNET",
+        "resourceType": "Microsoft.Network/virtualNetworks",
+        "resourceName": "MyVNET"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
+            "resourceType": "Microsoft.Network/publicIPAddresses",
+            "resourceName": "myPublicIP"
+          },
+          {
+            "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Network/virtualNetworks/MyVNET",
+            "resourceType": "Microsoft.Network/virtualNetworks",
+            "resourceName": "MyVNET"
+          }
+        ],
+        "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Network/networkInterfaces/myVMNic",
+        "resourceType": "Microsoft.Network/networkInterfaces",
+        "resourceName": "myVMNic"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Storage/storageAccounts/bootdiagsbliipvqr63tmi",
+            "resourceType": "Microsoft.Storage/storageAccounts",
+            "resourceName": "bootdiagsbliipvqr63tmi"
+          },
+          {
+            "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Network/networkInterfaces/myVMNic",
+            "resourceType": "Microsoft.Network/networkInterfaces",
+            "resourceName": "myVMNic"
+          }
+        ],
+        "id": "/subscriptions/0d3ce63c-abaa-48ae-bbe1-f582cea576b9/resourceGroups/MayankRG/providers/Microsoft.Compute/virtualMachines/simple-vm",
+        "resourceType": "Microsoft.Compute/virtualMachines",
+        "resourceName": "simple-vm"
+      }
+    ],
+    "validationLevel": "Template"
+  }
+}
